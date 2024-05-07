@@ -191,7 +191,7 @@ function getEmbedFromDatabase(title) {
 
   const filme = database.find(f => f.titulo === title);
 
-  return filme ? filme.embed : `<h1>Filme indisponivel.</h1><br> <h1>Entre em nosso Discord (discord.gg/nuvemazul) e peça o filme desejado.</h1>`;
+  return filme ? filme.embed : `<img src="https://cdn.discordapp.com/attachments/1190325155373789274/1237520059153387622/Captura_de_tela_de_2024-05-07_16-08-54.png?ex=663bf1de&is=663aa05e&hm=7874c72e44ab3d8734c42d74ab4dc91a4480398c21ab155b5a8d28d27937cd60&" height="300px">`;
 }
 
 const pageTitle = document.title;
@@ -203,7 +203,7 @@ const embed = getEmbedFromDatabase(pageTitle);
 for (const { key, name } of filterVideos(videos)) {
     if (!videoAdded) {
         const videoCard = document.createElement("div");
-        videoCard.classList.add("video-card");
+        videoCard.classList.add("filme-card");
 
         videoCard.innerHTML = `${embed}`;
 
