@@ -38,7 +38,7 @@ export function sidebar() {
       </p>
 
       <img
-        src="./assets/images/tmdb-logo.png"
+        src="./assets/images/logo2.png"
         width="130"
         height="17"
         alt="the movie database logo"
