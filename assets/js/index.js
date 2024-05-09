@@ -119,7 +119,7 @@ const heroBanner = function ({ results: movieList }) {
               alt="play-circle"
             />
 
-            <span class="span">Watch Now</span>
+            <span class="span">Assista agora</span>
           </a>
         </div>
       </div>
