@@ -918,7 +918,8 @@ body {
   }
 
   .logo img {
-    width: 150px;
+    width: 280px;
+    height: auto;
   }
 
   .menu-btn,
