@@ -16,7 +16,7 @@ let currentPage = 1;
 let totalPages = 0;
 
 fetchDataFromServer(
-  `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${api_key}&sort_by=popularity.desc&page=${currentPage}&${urlParam}`,
+  `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${api_key}&sort_by=popularity.desc&page=${currentPage}&${urlParam}&language=pt-BR`,
   function ({ results: movieList, total_pages }) {
     totalPages = total_pages;
 
@@ -62,7 +62,7 @@ fetchDataFromServer(
         this.classList.add("loading"); //this == loading-btn
 
         fetchDataFromServer(
-          `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${api_key}&sort_by=popularity.desc&page=${currentPage}&${urlParam}`,
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${api_key}&sort_by=popularity.desc&page=${currentPage}&${urlParam}&language=pt-BR`,
           ({ results: movieList }) => {
             this.classList.remove("loading"); //this == loading-btn
 

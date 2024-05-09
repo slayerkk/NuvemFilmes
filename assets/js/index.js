@@ -46,14 +46,14 @@ const genreList = {
 };
 
 fetchDataFromServer(
-  `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`,
+  `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=pt-BR`,
   function ({ genres }) {
     for (const { id, name } of genres) {
       genreList[id] = name;
     }
 
     fetchDataFromServer(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&page=3`,
+      `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&page=3&language=pt-BR`,
       heroBanner
     );
   }
@@ -155,7 +155,7 @@ const heroBanner = function ({ results: movieList }) {
   -------*/
   for (const { title, path } of homePageSections) {
     fetchDataFromServer(
-      `https://api.themoviedb.org/3${path}?api_key=${api_key}&page=4`,
+      `https://api.themoviedb.org/3${path}?api_key=${api_key}&page=4&language=pt-BR`,
       createMovieList,
       title
     );

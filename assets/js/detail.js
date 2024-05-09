@@ -8,7 +8,6 @@ import { search } from "./search.js";
 const movieId = window.localStorage.getItem("movieId");
 const pageContent = document.querySelector("[page-content]");
 //const pageContent = document.querySelector("movies");
-
 sidebar();
 
 const getGenres = function (genreList) {
@@ -52,7 +51,7 @@ const filterVideos = function (videoList) {
 };
 
 fetchDataFromServer(
-  `https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases`,
+  `https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases&language=pt-BR`,
   function (movie) {
     const {
       backdrop_path,
@@ -70,6 +69,8 @@ fetchDataFromServer(
       videos: { results: videos },
     } = movie;
 
+
+    
     document.title = `${title}`;
 
     const movieDetail = document.createElement("div");
@@ -155,6 +156,11 @@ fetchDataFromServer(
     `;
 
     //Trailer
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases&language=en`)
+  .then(response => response.json())
+  .then(data => {
+    const videos = data.videos.results;
+
     for (const { key, name } of filterVideos(videos)) {
       const videoCard = document.createElement("div");
       videoCard.classList.add("video-card");
@@ -174,24 +180,37 @@ fetchDataFromServer(
 
       movieDetail.querySelector(".slider-inner").appendChild(videoCard);
     }
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
 
 
 
 //Filme
-
-    let videoAdded = false;
-//Chama a embed do filme
-for (const { key, name } of filterVideos(videos)) {
+  
+fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases&language=en`)
+.then(response => response.json())
+.then(data => {
+  const videos = data.videos.results;
+  let videoAdded = false;
+  for (const { key, name } of filterVideos(videos)) {
     if (!videoAdded) {
-        const videoCard = document.createElement("div");
-        videoCard.classList.add("filme-card");
+      const videoCard = document.createElement("div");
+      videoCard.classList.add("filme-card");
 
-        videoCard.innerHTML = `<iframe src="https://superflixapi.top/filme/${movieId}" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>`;
+      videoCard.innerHTML = `<iframe src="https://superflixapi.top/filme/${movieId}" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>`;
 
-        movieDetail.querySelector(".filme-inner").appendChild(videoCard);
-        videoAdded = true;
+      movieDetail.querySelector(".filme-inner").appendChild(videoCard);
+      videoAdded = true;
     }
-}
+  }
+})
+.catch(error => {
+  console.error('Error fetching data:', error);
+});
+
+
 //Trailers e bla bla bla
 pageContent.appendChild(movieDetail);
 

@@ -27,7 +27,7 @@ export function search() {
 
     searchTimeout = setTimeout(function () {
       fetchDataFromServer(
-        `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&page=1&include_adult=false&query=${searchField.value}`,
+        `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&page=1&include_adult=false&query=${searchField.value}&language=pt-BR`,
         function ({ results: movieList }) {
           searchWrapper.classList.remove("searching");
           searchResultModal.classList.add("active");
