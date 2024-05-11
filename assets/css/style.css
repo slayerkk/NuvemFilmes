@@ -298,6 +298,14 @@ body {
   border-radius: var(--radius-8);
 }
 
+.filme-card{
+  background-image: url("../images/video-bg-icon.png");
+  aspect-ratio: 16/9;
+  flex-shrink: 0;
+  max-width: 100px;
+  width: calc(100% - 40px);
+}
+
 .video-card {
   background-image: url("../images/video-bg-icon.png");
   aspect-ratio: 16/9;
@@ -921,7 +929,7 @@ body {
     width: 280px;
     height: auto;
   }
-
+  
   .menu-btn,
   .overlay {
     display: none;
