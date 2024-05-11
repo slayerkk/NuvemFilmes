@@ -7,6 +7,7 @@ import { search } from "./search.js";
 
 const movieId = window.localStorage.getItem("movieId");
 const pageContent = document.querySelector("[page-content]");
+//alert(movieId);
 //const pageContent = document.querySelector("movies");
 sidebar();
 
@@ -135,11 +136,17 @@ fetchDataFromServer(
         </div>
 
         <div class="title-wrapper">
-          <h3 class="title-large">Filme</h3>
+          <h3 class="title-large">Superflix</h3>
         </div>
 
         <div class="slider-list">
           <div class="filme-inner"></div>
+        </div>
+          <br>
+          <h2>Rede Canais</h2>
+          <br>
+          <div class="slider-list">
+          <div class="filme-inner2"></div>
         </div>
           <br>
         <div class="title-wrapper">
@@ -202,6 +209,49 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_t
       videoCard.innerHTML = `<iframe src="https://superflixapi.top/filme/${movieId}" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>`;
 
       movieDetail.querySelector(".filme-inner").appendChild(videoCard);
+      videoAdded = true;
+    }
+  }
+})
+.catch(error => {
+  console.error('Error fetching data:', error);
+});
+
+
+//filme 2
+
+function getEmbedFromDatabase(movieId) {
+  const database = [
+      { id: 1, titulo: "475557", embed: `<iframe name=Player "" src="//%E3%83%87-%E3%83%B3-%E3%83%83-%E3%82%AF-%E3%82%B9-%E3%83%B3-%E3%83%87-%E3%83%89-%E3%83%89-%E3%83%AB-%E3%83%9C-%E3%83%A9-%E3%83%AB%E3%82%B0%E3%83%AC%E3%83%95%E3%83%88-%E3%83%96%E3%83%A0%E3%83%95%E3%82%AF%E3%83%88%E3%83%97%E3%83%89%E3%83%A9%E3%82%A2.%E3%82%B8-1l1-%E3%82%B0.%E3%83%83-22-%E3%82%AF-11-%E3%82%B9-33-%E3%83%AB-99-%E3%83%97-75-%E3%82%BE--%E3%82%A8--%E3%83%96--%E3%82%B9-%E3%83%83.%E3%82%AF.%E3%82%B9.%E3%82%BA.%E3%82%AF.%E3%82%B8.%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%83%91%E3%83%96%E3%83%AA%E3%82%B3-%E5%85%AC%E5%85%B1%E3%81%AE%E6%A8%99%E8%AD%98-%E3%83%90%E3%83%AC%E3%82%A6%E3%83%89%E3%83%83%E3%83%88%E3%82%AF%E3%82%A6%E3%82%B0%E3%83%88%E3%83%83%E3%83%88%E3%82%BA%E3%83%92.%E3%82%BB%E3%83%BC%E3%83%AB/player3/serverf3hlb.php?vid=CRNGA" frameborder=0 height=400 scrolling=no width=640 allow="encrypted-media" allowFullScreen> </iframe>` },
+      { id: 2, titulo: "346698", embed: `<iframe name=Player "" src="//%E3%83%87-%E3%83%B3-%E3%83%83-%E3%82%AF-%E3%82%B9-%E3%83%B3-%E3%83%87-%E3%83%89-%E3%83%89-%E3%83%AB-%E3%83%9C-%E3%83%A9-%E3%83%AB%E3%82%B0%E3%83%AC%E3%83%95%E3%83%88-%E3%83%96%E3%83%A0%E3%83%95%E3%82%AF%E3%83%88%E3%83%97%E3%83%89%E3%83%A9%E3%82%A2.%E3%82%B8-1l1-%E3%82%B0.%E3%83%83-22-%E3%82%AF-11-%E3%82%B9-33-%E3%83%AB-99-%E3%83%97-75-%E3%82%BE--%E3%82%A8--%E3%83%96--%E3%82%B9-%E3%83%83.%E3%82%AF.%E3%82%B9.%E3%82%BA.%E3%82%AF.%E3%82%B8.%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%83%91%E3%83%96%E3%83%AA%E3%82%B3-%E5%85%AC%E5%85%B1%E3%81%AE%E6%A8%99%E8%AD%98-%E3%83%90%E3%83%AC%E3%82%A6%E3%83%89%E3%83%83%E3%83%88%E3%82%AF%E3%82%A6%E3%82%B0%E3%83%88%E3%83%83%E3%83%88%E3%82%BA%E3%83%92.%E3%82%BB%E3%83%BC%E3%83%AB/player3/serverf4hlb.php?vid=BRBIE2023" frameborder=0 height=400 scrolling=no width=640 allow="encrypted-media" allowFullScreen> </iframe>` },
+      { id: 3, titulo: "872585", embed: `<iframe name=Player "" src="//%E3%83%87-%E3%83%B3-%E3%83%83-%E3%82%AF-%E3%82%B9-%E3%83%B3-%E3%83%87-%E3%83%89-%E3%83%89-%E3%83%AB-%E3%83%9C-%E3%83%A9-%E3%83%AB%E3%82%B0%E3%83%AC%E3%83%95%E3%83%88-%E3%83%96%E3%83%A0%E3%83%95%E3%82%AF%E3%83%88%E3%83%97%E3%83%89%E3%83%A9%E3%82%A2.%E3%82%B8-1l1-%E3%82%B0.%E3%83%83-22-%E3%82%AF-11-%E3%82%B9-33-%E3%83%AB-99-%E3%83%97-75-%E3%82%BE--%E3%82%A8--%E3%83%96--%E3%82%B9-%E3%83%83.%E3%82%AF.%E3%82%B9.%E3%82%BA.%E3%82%AF.%E3%82%B8.%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E3%83%91%E3%83%96%E3%83%AA%E3%82%B3-%E5%85%AC%E5%85%B1%E3%81%AE%E6%A8%99%E8%AD%98-%E3%83%90%E3%83%AC%E3%82%A6%E3%83%89%E3%83%83%E3%83%88%E3%82%AF%E3%82%A6%E3%82%B0%E3%83%88%E3%83%83%E3%83%88%E3%82%BA%E3%83%92.%E3%82%BB%E3%83%BC%E3%83%AB/player3/serverf4hlb.php?vid=OPENHMER" frameborder=0 height=400 scrolling=no width=640 allow="encrypted-media" allowFullScreen> </iframe>` }
+  ];
+
+  const filme = database.find(f => f.titulo === movieId);
+
+  return filme ? filme.embed : `<img src="https://cdn.discordapp.com/attachments/1190325155373789274/1237520059153387622/Captura_de_tela_de_2024-05-07_16-08-54.png?ex=663fe65e&is=663e94de&hm=17b1905cde6b134ca61973d4d746583efd016ca40da89d88943b86153d48b87f&" height="100px">`;
+}
+
+const pageTitle = movieId;
+
+const embed = getEmbedFromDatabase(pageTitle);
+
+console.log(embed);
+
+
+fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases&language=en`)
+.then(response => response.json())
+.then(data => {
+  const videos = data.videos.results;
+  let videoAdded = false;
+  for (const { key, name } of filterVideos(videos)) {
+    if (!videoAdded) {
+      const videoCard = document.createElement("div");
+      videoCard.classList.add("filme-card");
+
+      videoCard.innerHTML = `${embed}`;
+
+      movieDetail.querySelector(".filme-inner2").appendChild(videoCard);
       videoAdded = true;
     }
   }

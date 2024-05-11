@@ -29,13 +29,44 @@ export function sidebar() {
     </div>
     </div>
 
+    <div class="sidebar-list">
+      <p class="title">Suporte</p>
+
+      <a
+        href="./suporte.html#dns"
+        menu-close
+        class="sidebar-link"
+        >"Os filmes não funcionam"</a>
+        <a
+        href="./suporte.html#player"
+        menu-close
+        class="sidebar-link"
+        >Erros do Player</a>
+
+        <p class="title">Sobre nós</p>
+        <a
+        href="https://linktr.ee/NuvemAzul"
+        menu-close
+        class="sidebar-link"
+        >Conteudos!</a>
+        <a
+        href="https://nuvemazul.org/about.html"
+        menu-close
+        class="sidebar-link"
+        >Sobre</a>
+        </div>
+
+
+      
     <div class="sidebar-footer">
       <p class="copyright">
         Copyright 2023
         <a href="https://discord.gg/nuvemazul" class="link"
-          >Nuvem Azul</a
+          >Discord</a
         >
       </p>
+
+      
 
       <img
         src="./assets/images/logo2.png"
