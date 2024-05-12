@@ -133,27 +133,26 @@
             <p>Caso nenhuma dessas opções funcione, cogite em trocar de navegador. Apenas.</p>
         </section>
         <br>
-        <img src="https://cdn.discordapp.com/attachments/1190325155373789274/1238534620446851193/Captura_de_tela_de_2024-05-10_13-53-42-removebg-preview.png?ex=663fa2c0&is=663e5140&hm=b1cbb1324977313fa609a0862b932aeba1cdedb6a9ec82b8aad5994fc7ce9d56&" height="88px">
+        <img src="./assets/images/playererr.png" height="88px">
         <br>
         <br>
         <section id="player">
-            <img src="https://cdn.discordapp.com/attachments/1190325155373789274/1238531848150323261/logo.png?ex=663fa02b&is=663e4eab&hm=369a327179b69c1ccd768007710eddcf1cdefee0d205c5985bd0f8ee7e57f908&" height="50px">
+            <img src="./assets/images/superflix.png" height="50px">
             <p>Nós apenas indexamos os filmes por meio de varias apis, sendo a principal, a superflix. Este erro pode acontecer se o filme fonte estiver com o link quebrado ou com erro, nesse caso, entre em nosso Discord e denuncie!</p>
         </section>
         
         <section id="0">
-            <img src="https://cdn.discordapp.com/attachments/1190325155373789274/1238531707003473972/0cf6cdcd-c014-44b4-b44a-7f3d30329e08.png?ex=663fa009&is=663e4e89&hm=1156bd16e73cb654b40b5433a1705a2a61d7de3829e3587018357211f9696b60&" height="30px">
+            <img src="./assets/images/redecanais.png" height="30px">
             <p>O rede canais é bloqueado por padrão na maioria das DNS, sendo liberado pela 1.1.1.1 e pelo dns do google (8.8.8.8 & 8.8.4.4)</p>
         </section>
 
     </main>
     <script>
-        // Adiciona um evento de clique a todos os links de âncora
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Previne o comportamento padrão do link
-                const target = document.querySelector(this.getAttribute('href')); // Obtém o alvo do link
-                target.scrollIntoView({ // Rola suavemente até o alvo
+                e.preventDefault(); 
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
             });
