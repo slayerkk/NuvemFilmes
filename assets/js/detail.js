@@ -94,7 +94,7 @@ fetchDataFromServer(
 
       <div class="detail-box">
         <div class="detail-content">
-          <h1 class="heading">${title}</h1>
+          <h1 class="heading">${title} - ID: ${movieId}</h1>
 
           <div class="meta-list">
             <div class="meta-item">
@@ -248,7 +248,7 @@ function getEmbedFromDatabase(movieId) {
 
   const filme = database.find(f => f.titulo === movieId);
 
-  return filme ? filme.embed : `<img src="https://cdn.discordapp.com/attachments/1190325155373789274/1237520059153387622/Captura_de_tela_de_2024-05-07_16-08-54.png?ex=663fe65e&is=663e94de&hm=17b1905cde6b134ca61973d4d746583efd016ca40da89d88943b86153d48b87f&" height="100px">`;
+  return filme ? filme.embed : `<img src="./assets/images/FilmeOff.png" height="100px">`;
 }
 
 const pageTitle = movieId;
