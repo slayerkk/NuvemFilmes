@@ -94,7 +94,7 @@ fetchDataFromServer(
 
       <div class="detail-box">
         <div class="detail-content">
-          <h1 class="heading">${title} - ID: ${movieId}</h1>
+          <h1 class="heading">${title}</h1>
 
           <div class="meta-list">
             <div class="meta-item">
