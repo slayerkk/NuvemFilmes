@@ -216,7 +216,7 @@ getImdbId(tmdbMovieId, api_key)
             const videoCard = document.createElement("div");
             videoCard.classList.add("filme-card");
 
-            videoCard.innerHTML = `<iframe src="https://superflixapi.top/filme/${imdb_id}" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>`;
+            videoCard.innerHTML = `<iframe src="https://superflixapi.dev/filme/${imdb_id}#noBackground#noLink#color:6c5ce7" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>`;
 
             movieDetail.querySelector(".filme-inner").appendChild(videoCard);
             videoAdded = true;
